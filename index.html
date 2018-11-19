@@ -23,7 +23,11 @@
 							<div class='text-center'>
 								<strong>Risk Form</strong>
 							</div>
-							<form style='margin: 10px 0;' class='risk-form'>
+							<div class="alert alert-warning update-warning" role="alert" style='display: none;'>
+  							You are currently updating a risk.&nbsp;&nbsp;
+								<button type='button' class='btn btn-danger' onclick='exitEditMode()'>Quit</button>
+							</div>
+							<form class='risk-form'>
 								<div class='form-group'>
 									<label for='risk'>Risk</label>
 									<input id='risk' class='form-control' required />
@@ -48,7 +52,7 @@
 								<div class='text-center'>
 									<div class='btn-group'>
 										<button type='submit' class='btn btn-primary'>Submit</button>
-										<button type='button' class='btn btn-danger'>Clear Form</button>
+										<button type='button' class='btn btn-danger' onclick="clearForm()">Clear Form</button>
 									</div>						
 								</div>
 							</form>
