@@ -19,6 +19,7 @@ function clearForm() {
 
 function exitEditMode() {
 	isUpdating = false;
+	riskToEdit.classList.toggle('alert-secondary');
 	riskToEdit = null;
 	document.querySelector('.update-warning').style = 'display: none';
 	riskForm.reset();
@@ -29,6 +30,7 @@ function editMode(riskId) {
 	document.querySelector('.update-warning').style = 'display: block;margin-top: 15px';
 	riskToEdit = riskTableBody.querySelector(`#${riskId}`);
 	isUpdating = true;
+	riskToEdit.classList.toggle('alert-secondary'); //highlight risk row so user knows what risk is being updated
 	let riskRow = riskToEdit.children; //risk row to be updated
 	risk.value = riskRow[0].innerText;
 	riskCategory.value = riskRow[1].innerText;
