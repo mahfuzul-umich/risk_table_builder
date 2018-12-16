@@ -51,7 +51,7 @@
 								</div>
 								<div class='text-center'>
 									<div class='btn-group'>
-										<button type='submit' class='btn btn-primary'>Submit</button>
+										<button type='submit' class='btn btn-primary' onclick = "sortTable(3)">Submit</button>
 										<button type='button' class='btn btn-danger' onclick="clearForm()">Clear Form</button>
 									</div>						
 								</div>
@@ -60,7 +60,7 @@
 						<div class='col-md-8' style='overflow: auto'>
 							<div class='text-center'>
 								<strong>Risk Table</strong>
-								<table class='table risk-table' style='margin: 15px 0;'>
+								<table class='table risk-table' id = "riskTable" style='margin: 15px 0;'>
 									<thead>
 										<tr>
 											<th>Risk</th>
@@ -80,6 +80,116 @@
 				</div>
 			</div>
 		</div>
+        
+        
+        <div class = "parent-container">
+        
+         <div class="card widthControll" style= "margin-left: 10px;">
+          <div class="card-header">
+            <h5 class="card-title">Top Risks</h5>
+            </div>
+              
+           <ul class="list-group list-group-flush">
+                 <li class="list-group-item">Personnel shortfalls</li>
+                 <li class="list-group-item">Unrealistic schedules and budgets</li>
+                 <li class="list-group-item">Developing the wrong software functions</li>
+                 <li class="list-group-item">Developing the wrong user interface</li>
+                 
+               
+             </ul>
+              
+               
+          </div>
+          
+          
+           
+         <div class="card widthControll" style=" margin-left: 10px;">
+         <div class="card-header">
+            <h5 class="card-title">Development Environment Risks</h5>
+            </div>
+              
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Is a software project management tool available?</li>
+                <li class="list-group-item">Is a software process management tool available?</li>
+                <li class="list-group-item">Are tools for analysis and design available?</li>
+                <li class="list-group-item">Do analysis and design tools deliver methods that are appropriate for the product to be built?</li>
+                 
+               
+             </ul>
+            
+          </div>
+          
+          
+          <div class="card widthControll" style="margin-left: 10px;">
+         <div class="card-header">
+            <h5 class="card-title">Technical Issues Risks</h5>
+            </div>
+              
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Are facilitated application specification techniques used to aid in communication between the customer and developer?</li>
+                <li class="list-group-item"> Are specific methods used for software analysis?</li>
+                <li class="list-group-item">Do you use a specific method for data and architecture designs?</li>
+                <li class="list-group-item">Is more then 90% of your code written in a high order language?</li>
+                 
+               
+             </ul>
+            
+          </div>
+          
+          <div class="card widthControll" style="margin-left: 10px;">
+         <div class="card-header">
+            <h5 class="card-title">Technology To Be Built Risks</h5>
+            </div>
+              
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Is the technology to be built new to your company?</li>
+                <li class="list-group-item"> Do the customer requirements demand the creation of new algorithms, input or output technology?</li>
+                <li class="list-group-item">Does the software interface with new or unproven hardware?</li>
+                <li class="list-group-item">Does the software to be built interface with a database system whose function and performance have not been proven in this application area?</li>
+                 
+               
+             </ul>
+            
+          </div>
+          
+        <div class="card widthControll" style= "margin-left: 10px;">
+         <div class="card-header">
+            <h5 class="card-title">Product Size Risks </h5>
+            </div>
+              
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estimated size of the product in LOC or FP?</li>
+                <li class="list-group-item">Degree of confidence in estimated size estimate? </li>
+                <li class="list-group-item">Estimated size of product in number of programs, files, transactions?</li>
+                <li class="list-group-item"> Percentage deviation in size of product from average for previous products?</li>
+                 
+               
+             </ul>
+            
+          </div>
+          
+          
+          <div class="card widthControll" style="margin-left: 10px;">
+         
+            <div class="card-body " style = "text-align: center; padding-top: 70px;">
+                <h5 class="card-title">Additional Risks</h5>
+                <p class="card-text">For additonal risks click on the button below</p>
+                <a href="Risks.html" target="_blank" class="btn btn-primary">CLICK HERE</a>
+            </div>
+            
+            
+          </div>
+          
+          
+          
+          
+          
+
+        
+      
+      
+      
+      </div>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

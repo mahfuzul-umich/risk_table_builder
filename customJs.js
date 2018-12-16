@@ -1,9 +1,11 @@
-//risk form elements
+// risk form elements
 let risk = document.querySelector('#risk');
 let riskCategory = document.querySelector('#risk-category');
 let riskProbability = document.querySelector('#risk-probability');
 let riskImpact = document.querySelector('#risk-impact');
 let riskForm = document.querySelector('.risk-form');
+var tableExist = false;
+var rowscount = 0;
 
 //risk table elements
 let riskTable = document.querySelector('.risk-table');
@@ -36,6 +38,7 @@ function editMode(riskId) {
 	riskCategory.value = riskRow[1].innerText;
 	riskProbability.value = riskRow[2].innerText.replace(/\D/g, ""); //regex to replace the percent symbol at the end of the string
 	riskImpact.value = riskRow[3].innerText;
+     sortTable(3);
 }
 
 function updateRisk() {
@@ -44,6 +47,7 @@ function updateRisk() {
 	riskRow[1].innerText = riskCategory.value;
 	riskRow[2].innerText = `${riskProbability.value}%`;
 	riskRow[3].innerText = riskImpact.value;
+     sortTable(3);
 	exitEditMode();
 }
 
@@ -52,8 +56,72 @@ function removeRisk(riskId) {
 	riskTableBody.removeChild(riskTableBody.querySelector(`#${riskId}`));
 }
 
+function sortTable(n) {
+  var table,rows, switching, i, x, x2, y, y2, shouldSwitch, dir, switchcount = 0;
+    
+    
+
+  table = document.getElementById("riskTable");
+  switching = true;
+
+    
+    
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+     rows = table.rows;
+    
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < rows.length -1; i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+        
+      x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+			
+			x2 = rows[i].getElementsByTagName("TD")[n-1];
+			y2 = rows[i + 1].getElementsByTagName("TD")[n-1];
+     
+        
+    
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        } else if (x.innerHTML.toLowerCase() == y.innerHTML.toLowerCase()) {
+					if (x2.innerHTML.toLowerCase() < y2.innerHTML.toLowerCase()) {
+						//if so, mark as a switch and break the loop:
+						shouldSwitch= true;
+						break;
+					}
+				}
+      } 
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } 
+  }
+}
+
 riskForm.addEventListener('submit', (e) => {
 	e.preventDefault();
+   
+   
 	
 	if (isUpdating) return updateRisk(); //if isUpdating flag is true, then we know user is in edit mode. therefore after he clicks submit, it should update the appropriate risk row
 	
@@ -79,5 +147,6 @@ riskForm.addEventListener('submit', (e) => {
 		'</div>'
  	);
 	riskId++
+     sortTable(3);
 	riskForm.reset();
 })
