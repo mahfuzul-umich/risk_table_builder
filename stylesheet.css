@@ -23,7 +23,7 @@
           }
           
           .widthControll{
-              width: 30.5rem;
+              width: calc(100% / 3);
           }
           
           
@@ -35,6 +35,6 @@
 
 @media only screen and (min-width: 1033px) and (max-width: 1530px){
               .widthControll {
-                  width: 49%;
+                  width: calc(100% / 2);
               }
           }
